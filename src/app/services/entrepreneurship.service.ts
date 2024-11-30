@@ -49,4 +49,11 @@ export class EntrepreneurshipService {
       return this.http.delete<void>(`${this.apiUrl}/${idEntrepreneurship}`);
     }
 
+    getEntrepreneurshipByCategoryByName(nameCategory: string): Observable<Entrepreneurship[]> {
+      let url2= `${this.apiUrl}/category/${nameCategory}`
+      console.log(url2)
+      return this.http.get<Entrepreneurship[]>(url2);
+    }
+
+
 }

@@ -3,20 +3,30 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { EntrepreneurshipComponent } from './components/entrepreneurship/entrepreneurship.component';
+import { EntrepreneurshipService } from './services/entrepreneurship.service';
+import { CategoryComponent } from './components/category/category.component';
+import { CategoryService } from './services/category.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EntrepreneurshipComponent
+    EntrepreneurshipComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    provideHttpClient(withFetch()),
+    EntrepreneurshipService,
+    CategoryService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

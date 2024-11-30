@@ -1,0 +1,4 @@
+<div class="sidebar">
+    <a>TODAS</a>
+    <a *ngFor="let category of categories"  (click)="onCategoryClick(category.nameCategory)">{{ category.nameCategory }}</a>
+  </div>

@@ -1,0 +1,39 @@
+.emprendimientos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .emprendimiento {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .emprendimiento h3 {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+  }
+  
+  .emprendimiento p {
+    font-size: 0.9em;
+    margin-bottom: 8px;
+  }
+  
+  .emprendimiento img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+  }
+  
+  .emprendimiento ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .emprendimiento ul li {
+    font-size: 0.8em;
+  }
