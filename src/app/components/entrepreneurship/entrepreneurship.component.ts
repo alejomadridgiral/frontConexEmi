@@ -13,12 +13,23 @@ export class EntrepreneurshipComponent {
 
   entrepreneurships: Entrepreneurship[] = [];
 
-  constructor(private entrepreneurshipservice: EntrepreneurshipService, private router: Router ) {}
+  constructor(private entrepreneurshipService: EntrepreneurshipService, private router: Router ) {}
 
   ngOnInit(): void {
-    this.entrepreneurshipservice.getEntrepreneurship().subscribe((data) => (this.entrepreneurships = data));
-    console.log(this.entrepreneurships)
+    this.entrepreneurshipService.entrepreneurships$.subscribe((data) => {
+      this.entrepreneurships = data;
+    });
+    this.entrepreneurshipService.getEntrepreneurship().subscribe((data) => {
+      this.entrepreneurshipService.updateEntrepreneurships(data);
+    });
   }
 
+  // Método que se llamará desde el CategoryComponent cuando se haga clic en una categoría
+  filterByCategory(nameCategory: string): void {
+    this.entrepreneurshipService.getEntrepreneurshipByCategoryByName(nameCategory).subscribe((data) => {
+      this.entrepreneurshipService.updateEntrepreneurships(data);
+    });
+  
+  }
   
 }

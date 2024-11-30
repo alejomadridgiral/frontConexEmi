@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface Entrepreneurship{
   idEntrepreneurship: number;
@@ -18,6 +18,9 @@ export interface Entrepreneurship{
 })
 export class EntrepreneurshipService {
   private apiUrl ="http://localhost:8080/entrepreneurship";
+
+  private entrepreneurshipsSubject = new BehaviorSubject<Entrepreneurship[]>([]);
+  entrepreneurships$ = this.entrepreneurshipsSubject.asObservable();
 
   constructor(private http: HttpClient) { }
   
@@ -50,10 +53,11 @@ export class EntrepreneurshipService {
     }
 
     getEntrepreneurshipByCategoryByName(nameCategory: string): Observable<Entrepreneurship[]> {
-      let url2= `${this.apiUrl}/category/${nameCategory}`
-      console.log(url2)
-      return this.http.get<Entrepreneurship[]>(url2);
+      return this.http.get<Entrepreneurship[]>(`${this.apiUrl}/category/${nameCategory}`);
     }
 
+    updateEntrepreneurships(data: Entrepreneurship[]): void {
+      this.entrepreneurshipsSubject.next(data);
+    }
 
 }

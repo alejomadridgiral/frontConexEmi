@@ -12,12 +12,11 @@ import { Entrepreneurship, EntrepreneurshipService } from '../../services/entrep
 })
 export class CategoryComponent {
 
-  entrepreneurships: Entrepreneurship[] = []; 
-  errorMessage: string = '';
   categories: Category[] = [];
+  errorMessage: string = '';
 
 
-  constructor(private categoryservice: CategoryService, private entrepreneurshipservice: EntrepreneurshipService, private router: Router ) {}
+  constructor(private categoryservice: CategoryService, private entrepreneurshipService: EntrepreneurshipService, private router: Router ) {}
 
   ngOnInit(): void {
     this.categoryservice.getCategory().subscribe((data) => (this.categories = data));
@@ -25,21 +24,28 @@ export class CategoryComponent {
   }
 
 
-
   onCategoryClick(nameCategory: string): void {
-    console.log('Categoría seleccionada: ', nameCategory);
-    this.entrepreneurshipservice.getEntrepreneurshipByCategoryByName(nameCategory)
-      .subscribe(
+    if (nameCategory === 'TODAS') {
+      this.entrepreneurshipService.getEntrepreneurship().subscribe(
         (data: Entrepreneurship[]) => {
-          console.log(data)
-          this.entrepreneurships = data; // Asignamos el emprendimiento recibido a la propiedad
-          
+          this.entrepreneurshipService.updateEntrepreneurships(data);
+        },
+        (error) => {
+          this.errorMessage = 'Error al obtener los datos de los emprendimientos';
+          console.error(error);
+        }
+      );
+    } else {
+      this.entrepreneurshipService.getEntrepreneurshipByCategoryByName(nameCategory).subscribe(
+        (data: Entrepreneurship[]) => {
+          this.entrepreneurshipService.updateEntrepreneurships(data);
         },
         (error) => {
           this.errorMessage = 'Error al obtener los datos de la categoría';
           console.error(error);
         }
       );
+    }
   }
 
 
