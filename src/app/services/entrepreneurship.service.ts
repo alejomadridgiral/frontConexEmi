@@ -2,62 +2,71 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-export interface Entrepreneurship{
+export interface Entrepreneurship {
   idEntrepreneurship: number;
-  entrepreneurshipName: string; 
+  entrepreneurshipName: string;
   entrepreneurshipDescription: string;
   image: string;
   address: string;
   idCity: number;
   idUser: number;
   idCategories: number[]
+  user: string;
+  nameCategories: string[];
+  nameCity: string;
+  comments: string[];
+  likes: number;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntrepreneurshipService {
-  private apiUrl ="http://localhost:8080/entrepreneurship";
+  private apiUrl = "http://localhost:8080/entrepreneurship";
 
   private entrepreneurshipsSubject = new BehaviorSubject<Entrepreneurship[]>([]);
   entrepreneurships$ = this.entrepreneurshipsSubject.asObservable();
 
   constructor(private http: HttpClient) { }
-  
-    //metodos
 
-    getEntrepreneurship():Observable<Entrepreneurship[]>{
-      return this.http.get<Entrepreneurship[]>(this.apiUrl)
-    }
 
-     // Método para obtner un Entrepreneurship por id
-     getIdEntrepreneurship(idEntrepreneurship: number): Observable<Entrepreneurship> {
-      // Se hace una solicitud GET para obtener Entrepreneurship por su id
-      return this.http.get<Entrepreneurship>(`${this.apiUrl}/${idEntrepreneurship}`);
-    }
-  
-    createEntrepreneurship(entrepreneurship: Entrepreneurship):Observable<Entrepreneurship>{
-      return this.http.post<Entrepreneurship>(this.apiUrl, entrepreneurship)
-    }
-    //modifcar  eliminar consulta x id
-  
-    // Método para actualizar un Entrepreneurship
-    updateEntrepreneurship(entrepreneurship: Entrepreneurship): Observable<Entrepreneurship> {
-      // Se hace una solicitud PUT para actualizar el dueño por su id
-      return this.http.put<Entrepreneurship>(`${this.apiUrl}/${entrepreneurship.idEntrepreneurship}`, entrepreneurship);
-    }
-  
-    // Eliminar Entrepreneurship
-    deleteEntrepreneurship(idEntrepreneurship: number): Observable<void> {
-      return this.http.delete<void>(`${this.apiUrl}/${idEntrepreneurship}`);
-    }
+  // Método para crear: Entrepreneurship
+  createEntrepreneurship(entrepreneurship: Entrepreneurship): Observable<Entrepreneurship> {
+    return this.http.post<Entrepreneurship>(this.apiUrl, entrepreneurship)
+  }
 
-    getEntrepreneurshipByCategoryByName(nameCategory: string): Observable<Entrepreneurship[]> {
-      return this.http.get<Entrepreneurship[]>(`${this.apiUrl}/category/${nameCategory}`);
-    }
+  // Método para obtener por id: Entrepreneurship
+  getEntrepreneurshipById(idEntrepreneurship: number): Observable<Entrepreneurship> {
+    return this.http.get<Entrepreneurship>(`${this.apiUrl}/${idEntrepreneurship}`);
+  }
 
-    updateEntrepreneurships(data: Entrepreneurship[]): void {
-      this.entrepreneurshipsSubject.next(data);
-    }
+  // Método para obtener todos: Entrepreneurship
+  getAllEntrepreneurships(): Observable<Entrepreneurship[]> {
+    return this.http.get<Entrepreneurship[]>(this.apiUrl)
+  }
+
+  // Método para actualizar por id: Entrepreneurship
+  updateEntrepreneurship(entrepreneurship: Entrepreneurship): Observable<Entrepreneurship> {
+    return this.http.put<Entrepreneurship>(`${this.apiUrl}/${entrepreneurship.idEntrepreneurship}`, entrepreneurship);
+  }
+
+  // Método para eliminar por id: Entrepreneurship
+  deleteEntrepreneurshipById(idEntrepreneurship: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${idEntrepreneurship}`);
+  }
+
+  // Método para obtener por categoria: Entrepreneurship
+  getEntrepreneurshipsByCategory(nameCategory: string): Observable<Entrepreneurship[]> {
+    return this.http.get<Entrepreneurship[]>(`${this.apiUrl}/category/${nameCategory}`);
+  }
+
+  addComment(id: number, comment: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/${id}/comments`, comment);
+  }
+
+
+  updateEntrepreneurships(data: Entrepreneurship[]): void {
+    this.entrepreneurshipsSubject.next(data);
+  }
 
 }

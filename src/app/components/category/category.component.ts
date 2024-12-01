@@ -6,7 +6,7 @@ import { Entrepreneurship, EntrepreneurshipService } from '../../services/entrep
 @Component({
   selector: 'app-category',
   standalone: false,
-  
+
   templateUrl: './category.component.html',
   styleUrl: './category.component.css'
 })
@@ -14,19 +14,22 @@ export class CategoryComponent {
 
   categories: Category[] = [];
   errorMessage: string = '';
+  activeCategory: string = 'TODAS';
 
 
-  constructor(private categoryservice: CategoryService, private entrepreneurshipService: EntrepreneurshipService, private router: Router ) {}
+  constructor(private categoryservice: CategoryService, private entrepreneurshipService: EntrepreneurshipService, private router: Router) { }
 
+  
   ngOnInit(): void {
-    this.categoryservice.getCategory().subscribe((data) => (this.categories = data));
+    this.categoryservice.getAllCategories().subscribe((data) => (this.categories = data));
     console.log(this.categories)
   }
 
 
   onCategoryClick(nameCategory: string): void {
+    this.activeCategory = nameCategory;
     if (nameCategory === 'TODAS') {
-      this.entrepreneurshipService.getEntrepreneurship().subscribe(
+      this.entrepreneurshipService.getAllEntrepreneurships().subscribe(
         (data: Entrepreneurship[]) => {
           this.entrepreneurshipService.updateEntrepreneurships(data);
         },
@@ -36,7 +39,7 @@ export class CategoryComponent {
         }
       );
     } else {
-      this.entrepreneurshipService.getEntrepreneurshipByCategoryByName(nameCategory).subscribe(
+      this.entrepreneurshipService.getEntrepreneurshipsByCategory(nameCategory).subscribe(
         (data: Entrepreneurship[]) => {
           this.entrepreneurshipService.updateEntrepreneurships(data);
         },

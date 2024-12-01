@@ -1,4 +1,5 @@
-<div class="sidebar">
-  <a (click)="onCategoryClick('TODAS')">TODAS</a>
-    <a *ngFor="let category of categories"  (click)="onCategoryClick(category.nameCategory)">{{ category.nameCategory }}</a>
-  </div>
+<div class="category-list">
+  <a (click)="onCategoryClick('TODAS')" [class.active]="activeCategory === 'TODAS'">TODAS</a>
+  <a *ngFor="let category of categories" (click)="onCategoryClick(category.nameCategory)"
+    [class.active]="activeCategory === category.nameCategory">{{ category.nameCategory | replaceUnderscore}}</a>
+</div>

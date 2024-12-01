@@ -1,20 +1,31 @@
 <div class="emprendimientos-container" *ngIf="entrepreneurships.length > 0">
-    <div *ngFor="let entrepreneurship of entrepreneurships" class="emprendimiento">
-      <h3>{{ entrepreneurship.entrepreneurshipName || 'Nombre no disponible' }}</h3>
-      <p><strong>Descripción:</strong> {{ entrepreneurship.entrepreneurshipDescription }}</p>
-      <p><strong>Dirección:</strong> {{ entrepreneurship.address }}</p>
-      <p><strong>Ciudad ID:</strong> {{ entrepreneurship.idCity }}</p>
-  
-      <!-- Imagen del emprendimiento -->
-      <img *ngIf="entrepreneurship.image" [src]="entrepreneurship.image" alt="{{ entrepreneurship.entrepreneurshipName }}" class="emprendimiento-image">
-  
-      <!-- Categorías -->
-      <p *ngIf="entrepreneurship.idCategories.length > 0"><strong>Categorías:</strong>
-        <ul>
-          <li *ngFor="let category of entrepreneurship.idCategories">Categoría ID: {{ category }}</li>
-        </ul>
-       
-    </div>
-  </div>
+  <div *ngFor="let entrepreneurship of entrepreneurships" class="emprendimiento">
 
- 
+    <!-- Usuario -->
+    <h3>{{ entrepreneurship.user}}</h3>
+
+    <!-- Nombre del emprendimiento -->
+    <h3>{{ entrepreneurship.entrepreneurshipName || 'Nombre no disponible' }}</h3>
+
+    <!-- Categorías -->
+    <p *ngIf="entrepreneurship.idCategories.length > 0"><strong>Categorías:</strong>
+      <span *ngFor="let category of entrepreneurship.nameCategories"> {{ category | replaceUnderscore}}</span>
+    </p>
+
+    <!-- Descripción del emprendimiento -->
+    <p>{{ entrepreneurship.entrepreneurshipDescription }}</p>
+
+    <!-- Dirección y Ciudad del emprendimiento -->
+    <p><strong>Dirección:</strong> {{ entrepreneurship.address }} {{ entrepreneurship.nameCity | replaceUnderscore}}</p>
+
+    <!-- Imagen del emprendimiento -->
+    <img *ngIf="entrepreneurship.image" [src]="entrepreneurship.image" alt="{{ entrepreneurship.entrepreneurshipName }}"
+      class="emprendimiento-image">
+
+
+    <!-- Reacciones y comentarios -->
+    <app-reaction [idEntrepreneurship]="entrepreneurship.idEntrepreneurship" [likes]="entrepreneurship.likes"></app-reaction>
+    <app-comments [idEntrepreneurship]="entrepreneurship.idEntrepreneurship" [comments]="entrepreneurship.comments"></app-comments>
+
+  </div>
+</div>
