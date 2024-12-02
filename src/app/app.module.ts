@@ -15,6 +15,7 @@ import { ReactionService } from './services/reaction.service';
 import { CommentsComponent } from './components/comments/comments.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommentsService } from './services/comments.service';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { CommentsService } from './services/comments.service';
     CategoryService,
     ReactionService,
     CommentsService,
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
 
