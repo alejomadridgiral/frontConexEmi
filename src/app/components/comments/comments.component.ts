@@ -21,7 +21,7 @@ export class CommentsComponent {
 
   addComment(): void {
     if (this.newComment.trim()) {
-      const comment = { user: 'Usuario', text: this.newComment }; // Ajusta el usuario según tu lógica
+      const comment = { user: 'Usuario', text: this.newComment }; 
       this.entrepreneurshipService.addComment(this.idEntrepreneurship, comment).subscribe(() => {
         this.comments.push(comment);
         this.newComment = '';

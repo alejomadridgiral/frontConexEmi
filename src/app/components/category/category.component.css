@@ -1,10 +1,14 @@
 .category-list a {
-  padding: 15px;
+  font-family:  "Josefin Sans", sans-serif;
+  font-size: 15px;
+  padding: 10px;
   text-decoration: none;
-  font-size: 18px;
-  color: white;
+  color: #333;
   display: block;
   cursor: pointer;
+  border-top: 1px solid #ccc; 
+  border-bottom: 1px solid #ccc; 
+  margin-bottom: 10px; 
 }
 
 .category-list a:hover {
@@ -13,6 +17,17 @@
 }
 
 .category-list a.active {
-  background-color: #007bff;
+  background: linear-gradient(98deg, #509FEB 0%, #24243E 20%, #509FEB 98%);
   color: white;
+}
+
+.icon-with-text {
+  display: flex;
+  align-items: center;
+}
+
+.icon-with-text i {
+  margin-right: 8px; 
+  min-width: 24px; 
+  text-align: center; 
 }

@@ -26,7 +26,7 @@ export class ReactionComponent {
 
   likeEntrepreneurship(): void {
     if (this.idEntrepreneurship !== undefined) {
-      const reaction = { idReaction: 0, hasReacted: true, idEntrepreneurship: this.idEntrepreneurship, idUser: 1 }; // Ajusta el idUser según tu lógica
+      const reaction = { idReaction: 0, hasReacted: true, idEntrepreneurship: this.idEntrepreneurship, idUser: 1 }; 
       this.reactionService.createReaction(reaction).subscribe(() => {
         this.likes++;
       });

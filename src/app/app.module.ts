@@ -21,10 +21,10 @@ import { CommentsService } from './services/comments.service';
     AppComponent,
     EntrepreneurshipComponent,
     CategoryComponent,
-    ReplaceUnderscorePipe,
     HeaderComponent,
     ReactionComponent,
-    CommentsComponent
+    CommentsComponent,
+    ReplaceUnderscorePipe,
   ],
   imports: [
     BrowserModule,

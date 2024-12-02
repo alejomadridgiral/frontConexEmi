@@ -1,5 +1,5 @@
 <div class="category-list">
-  <a (click)="onCategoryClick('TODAS')" [class.active]="activeCategory === 'TODAS'">TODAS</a>
+  <a (click)="onCategoryClick('TODAS')" [class.active]="activeCategory === 'TODAS'" class="icon-with-text"><i [ngClass]="iconMap['TODAS']"></i>TODAS</a>
   <a *ngFor="let category of categories" (click)="onCategoryClick(category.nameCategory)"
-    [class.active]="activeCategory === category.nameCategory">{{ category.nameCategory | replaceUnderscore}}</a>
+    [class.active]="activeCategory === category.nameCategory" class="icon-with-text"><i [ngClass]="iconMap[category.nameCategory]"></i> {{ category.nameCategory | replaceUnderscore}}</a>
 </div>

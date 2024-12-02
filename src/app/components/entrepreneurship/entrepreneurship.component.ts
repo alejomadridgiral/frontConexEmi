@@ -26,7 +26,7 @@ export class EntrepreneurshipComponent {
     });
   }
 
-
+  
   // Método que se llamará desde el CategoryComponent cuando se haga clic en una categoría
   filterByCategory(nameCategory: string): void {
     this.entrepreneurshipService.getEntrepreneurshipsByCategory(nameCategory).subscribe((data) => {
