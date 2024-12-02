@@ -16,6 +16,11 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommentsService } from './services/comments.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+//Angular Material
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [
     provideClientHydration(withEventReplay()),
