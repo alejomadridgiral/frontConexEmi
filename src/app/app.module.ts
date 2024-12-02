@@ -15,6 +15,10 @@ import { ReactionService } from './services/reaction.service';
 import { CommentsComponent } from './components/comments/comments.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommentsService } from './services/comments.service';
+import { CreatePublicationComponent } from './components/create-publication/create-publication.component';
+import { MainComponent } from './components/main/main.component';
+import { CityService } from './services/city.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,9 @@ import { CommentsService } from './services/comments.service';
     ReactionComponent,
     CommentsComponent,
     ReplaceUnderscorePipe,
+    CreatePublicationComponent,
+    MainComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +47,7 @@ import { CommentsService } from './services/comments.service';
     CategoryService,
     ReactionService,
     CommentsService,
+    CityService
   ],
   bootstrap: [AppComponent],
 

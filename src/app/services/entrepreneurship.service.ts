@@ -18,6 +18,18 @@ export interface Entrepreneurship {
   likes: number;
 }
 
+
+export interface CreateEntrepreneurshipRequest {
+  entrepreneurshipName: string;
+  entrepreneurshipDescription: string;
+  image: string;
+  address: string;
+  idCity: number;
+  idUser: number;
+  idCategories: number[];
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,7 +43,7 @@ export class EntrepreneurshipService {
 
 
   // Método para crear: Entrepreneurship
-  createEntrepreneurship(entrepreneurship: Entrepreneurship): Observable<Entrepreneurship> {
+  createEntrepreneurship(entrepreneurship: CreateEntrepreneurshipRequest): Observable<Entrepreneurship> {
     return this.http.post<Entrepreneurship>(this.apiUrl, entrepreneurship)
   }
 

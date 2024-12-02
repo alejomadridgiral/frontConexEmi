@@ -1,0 +1,111 @@
+.logo-title {
+    display: flex;
+    align-items: center;
+    padding-left: 100px;
+    gap: 100px;
+    background-color: white;
+    border-bottom: 5px solid;
+    border-image: linear-gradient(98deg, #509FEB 0%, #24243E 20%, #509FEB 98%);
+    border-image-slice: 1;
+    padding: 10px 20px;
+}
+
+.icon {
+    margin-right: 8px;
+    font-size: 35px;
+    text-align: center;
+    margin-left: 100px;
+    color: #24243E;
+    cursor: pointer;
+}
+
+.logo {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px #24243E;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+form h2 {
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 25px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 96%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #509FEB;
+    outline: none;
+}
+
+.form-group .form-control {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    justify-content: left;
+}
+
+.form-group .form-control div {
+    display: flex;
+    align-items: center;
+}
+
+.form-group input[type="checkbox"] {
+    margin-right: 10px;
+    width: 15px;
+}
+
+.text-danger {
+    color: #d9534f;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #509FEB;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #407bbf;
+}

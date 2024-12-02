@@ -20,7 +20,7 @@
 }
 
 .logo {
-  height: 80px;
+  height: 50px;
   margin-right: 10px;
 }
 
@@ -66,10 +66,10 @@
   display: flex;
   justify-content: space-between; 
   align-items: center; 
-  height: 50px;
+  height: 40px;
   background: linear-gradient(98deg, #509FEB 0%, #24243E 20%, #509FEB 98%);
   width: 100%;
-  margin-top: 100px;
+  margin-top: 70px;
   position: fixed;
   top: 0;
   left: 0;

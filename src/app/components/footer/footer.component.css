@@ -1,0 +1,61 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(98deg, #509FEB 0%, #24243E 20%, #509FEB 98%);
+    color: white;
+    font-family: "Josefin Sans", sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-column {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.footer-column h2 {
+    color: white;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.footer-column h3,
+.footer-column a {
+    margin: 5px 0;
+    font-weight: 200;
+    text-align: left;
+    font-size: 15px;
+}
+
+.footer-column a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer-column p {
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.information {
+    padding-bottom: 8px;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 100%; 
+}
+
+.logo1 {
+    margin: 0 10px;
+    height: 80px;
+}
+
+.logo2 {
+    margin: 0 10px;
+    height: 50px;
+}

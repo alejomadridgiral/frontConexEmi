@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Entrepreneurship, EntrepreneurshipService } from '../../services/entrepreneurship.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-entrepreneurship',
   standalone: false,
@@ -12,7 +13,6 @@ import { Router } from '@angular/router';
 export class EntrepreneurshipComponent {
 
   entrepreneurships: Entrepreneurship[] = [];
-
 
   constructor(private entrepreneurshipService: EntrepreneurshipService, private router: Router) { }
 
