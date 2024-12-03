@@ -4,9 +4,12 @@ import { Observable } from 'rxjs';
 
 export interface Comments {
   idComment: number;
+  commentDate: string;
   commentDescription: string;
   idEntrepreneurship: number;
+  entrepreneurship_name:string;
   idUser: number;
+  user: string;
 }
 
 
@@ -37,5 +40,11 @@ export class CommentsService {
   deleteCommentById(idComment: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${idComment}`);
   }
+
+  // Método para obtener por entrepreneurship: Comments
+  getCommentsByEntrepreneurship(idEntrepreneurship: number): Observable<Comments[]> {
+    return this.http.get<Comments[]>(`${this.apiUrl}/${idEntrepreneurship}`);
+  }
+
 
 }

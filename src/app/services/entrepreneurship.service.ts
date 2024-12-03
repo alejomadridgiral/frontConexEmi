@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Comments } from './comments.service';
 
 export interface Entrepreneurship {
   idEntrepreneurship: number;
@@ -9,12 +10,12 @@ export interface Entrepreneurship {
   image: string;
   address: string;
   idCity: number;
-  idUser: number;
-  idCategories: number[]
-  user: string;
-  nameCategories: string[];
   nameCity: string;
-  comments: string[];
+  idUser: number;
+  user: string;
+  idCategories: number[]
+  nameCategories: string[];
+  comments: Comments[];
   likes: number;
 }
 

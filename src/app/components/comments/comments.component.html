@@ -1,8 +1,6 @@
 <div class="comments">
   <h4>Comentarios</h4>
-  <div *ngFor="let comment of comments" class="comment">
-    <p><strong>{{ comment.user }}:</strong> {{ comment.text }}</p>
-  </div>
+
   <div class="add-comment">
     <input type="text" [(ngModel)]="newComment" placeholder="Añadir un comentario...">
     <button mat-fab extended class="send-button" (click)="addComment()">
@@ -12,7 +10,4 @@
   </div>
 </div>
 
-
-  
-  <router-outlet></router-outlet>
-
+<router-outlet></router-outlet>

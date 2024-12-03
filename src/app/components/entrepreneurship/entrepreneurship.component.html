@@ -5,10 +5,10 @@
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{ entrepreneurship.entrepreneurshipName || 'Nombre no disponible' }}</mat-card-title>
-        <mat-card-subtitle>{{ entrepreneurship.user}}</mat-card-subtitle>
+        <mat-card-subtitle>{{ entrepreneurship.user }}</mat-card-subtitle>
       </mat-card-header>
-      
-      <mat-card-content>Dirección: {{ entrepreneurship.address }}</mat-card-content>
+
+      <mat-card-content>Dirección: {{ entrepreneurship.address }} - {{ entrepreneurship.nameCity }}</mat-card-content>
       <mat-card-content>
         <p>
           {{ entrepreneurship.entrepreneurshipDescription }}
@@ -17,45 +17,44 @@
       <mat-card-content class="category-text">
         <p>
           {{ entrepreneurship.nameCategories.length === 1 ? 'Categoría' : 'Categorías' }}:
-          <b>{{ entrepreneurship.nameCategories.join(', ') | replaceUnderscore}}</b>
-        </p>        
+          <b>{{ entrepreneurship.nameCategories.join(', ') | replaceUnderscore }}</b>
+        </p>
       </mat-card-content>
       <mat-card class="image-card">
-        <img mat-card-image *ngIf="entrepreneurship.image" [src]="entrepreneurship.image" alt="{{ entrepreneurship.entrepreneurshipName }}">
+        <img mat-card-image *ngIf="entrepreneurship.image" [src]="entrepreneurship.image"
+          alt="{{ entrepreneurship.entrepreneurshipName }}">
       </mat-card>
       <mat-card-actions class="actions">
         <!-- Reacciones y comentarios -->
-        <app-reaction [idEntrepreneurship]="entrepreneurship.idEntrepreneurship" [likes]="entrepreneurship.likes"></app-reaction>
+        <app-reaction [idEntrepreneurship]="entrepreneurship.idEntrepreneurship"
+          [likes]="entrepreneurship.likes"></app-reaction>
         <!-- Botón de Comentarios -->
         <div class="action-group">
           <button mat-mini-fab>
             <mat-icon>comment</mat-icon>
           </button>
-          <span class="counter">8</span> <!-- Contador de Comentarios -->
+          <span class="counter"></span> <!-- Contador de Comentarios -->
         </div>
       </mat-card-actions>
-      <app-comments [idEntrepreneurship]="entrepreneurship.idEntrepreneurship" [comments]="entrepreneurship.comments"></app-comments>
-      
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-subtitle>Paul</mat-card-subtitle>
-        <mat-card-subtitle class="card-date">01/01/2024</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p class="comment-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
-      </mat-card-content>
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-subtitle>Jack</mat-card-subtitle>
-        <mat-card-subtitle class="card-date">02/01/2024</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p class="comment-description">
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </mat-card-content>
+      <app-comments [idEntrepreneurship]="entrepreneurship.idEntrepreneurship"
+        [comments]="entrepreneurship.comments"></app-comments>
+
+      <!-- Iterar sobre los comentarios -->
+      <div *ngFor="let comment of entrepreneurship.comments">
+        <mat-card>
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-subtitle>{{ comment.user }}</mat-card-subtitle>
+            <mat-card-subtitle class="card-date">{{ comment.commentDate }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="comment-description">
+              {{ comment.commentDescription }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
     </mat-card>
   </div>
 </div>
