@@ -1,0 +1,153 @@
+<div class="logo-title">
+    <i class="fa-solid fa-circle-arrow-left icon" routerLink=""></i>
+    <div>
+        <img src="Logo.png" alt="Logo" class="logo">
+        <img src="Nombre.png" alt="Logo" class="logo">
+    </div>
+</div>
+
+
+<div class="form-container">
+    <form id="entrepreneurship-form" (ngSubmit)="onSubmit()" #entrepreneurshipForm="ngForm" novalidate>
+        <h2>Creación de publicación</h2>
+
+        <!--Nombre del Emprendimiento-->
+        <div class="form-group">
+            <label for="entrepreneurshipName">Nombre del Emprendimiento</label>
+            <input 
+                type="text" 
+                id="entrepreneurshipName"
+                name="entrepreneurshipName" 
+                class="form-control" 
+                required
+                minlength="2" 
+                maxlength="150" 
+                [(ngModel)]="entrepreneurship.entrepreneurshipName" 
+                #name="ngModel"
+            >
+            <!--div de validaciones Alerts-->
+            <div *ngIf="name.invalid  && (name.dirty || name.touched)" class="text-danger">
+                <small *ngIf="name.errors?.['required']"> El nombre es obligatorio</small>
+                <small *ngIf="name.errors?.['minlength']">El nombre debe tener mas de 2 caracteres</small>
+                <small *ngIf="name.errors?.['maxlength']">El nombre debe tener menos de 20 caracteres</small>
+            </div>
+        </div>
+
+        <!--Categoria del Emprendimiento-->
+        <div class="form-group">
+            <label for="category">Categorías</label>
+            <div id="category" class="form-control">
+                <div *ngFor="let category of categories">
+                    <input 
+                        type="checkbox" 
+                        [id]="'category-' + category.idCategory" 
+                        [value]="category.idCategory"
+                        (change)="onCheckboxChange($event)"
+                        [checked]="entrepreneurship.idCategories.includes(category.idCategory)"
+                    >
+                    <label 
+                        [for]="'category-' + category.idCategory">{{ category.nameCategory | replaceUnderscore}}
+                    </label>
+                </div>
+            </div>
+            <!--div de validaciones Alerts-->
+            <div *ngIf="entrepreneurship.idCategories.length === 0 && (entrepreneurshipForm.submitted || entrepreneurshipForm.dirty)"
+                class="text-danger">
+                <small> La categoría es obligatoria</small>
+            </div>
+        </div>
+
+        <!--Direccion del Emprendimiento-->
+        <div class="form-group">
+            <label for="address">Dirección</label>
+            <input 
+                type="text" 
+                id="address"
+                name="address"
+                class="form-control"
+                maxlength="150"
+                [(ngModel)]="entrepreneurship.address" 
+                #address="ngModel"
+            >
+            <!--div de validaciones Alerts-->
+            <div *ngIf="address.invalid  && (address.dirty || address.touched)" class="text-danger">
+                <small *ngIf="address.errors?.['maxlength']">La dirección debe tener menos de 150 caracteres</small>
+            </div>
+        </div>
+
+        <!--Ciudad del Emprendimiento-->
+        <div class="form-group">
+            <label for="city">Ciudad</label>
+            <select 
+                id="city" 
+                name="city" 
+                class="form-control" 
+                required 
+                [(ngModel)]="entrepreneurship.idCity"
+                #city="ngModel"
+            >
+                <option value="" disabled selected>Seleccione Ciudad</option>
+                <option 
+                    *ngFor="let city of cities" 
+                    [value]="city.idCity"
+                >
+                    {{ city.nameCity | replaceUnderscore }}
+                </option>
+            </select>
+            <!--div de validaciones Alerts-->
+            <div *ngIf="city.invalid  && (city.dirty || city.touched)" class="text-danger">
+                <small *ngIf="city.errors?.['required']"> La ciudad es obligatoria</small>
+            </div>
+        </div>
+
+        <!--Descripcion del Emprendimiento-->
+        <div class="form-group">
+            <label for="entrepreneurshipDescription">Descripción</label>
+            <textarea 
+                id="entrepreneurshipDescription" 
+                name="entrepreneurshipDescription" 
+                rows="4" 
+                class="form-control"
+                required    
+                maxlength="500" 
+                [(ngModel)]="entrepreneurship.entrepreneurshipDescription"
+                #description="ngModel"
+            >
+            </textarea>
+            <!--div de validaciones Alerts-->
+            <div *ngIf="description.invalid  && (description.dirty || description.touched)" class="text-danger">
+                <small *ngIf="description.errors?.['required']">La descripción es obligatoria</small>
+                <small *ngIf="description.errors?.['maxlength']">La descripción debe tener menos de 500
+                    caracteres</small>
+            </div>
+        </div>
+
+        <!--Imagen del Emprendimiento-->
+        <div class="form-group">
+            <label for="image">Imagen</label>
+            <span
+                [ngStyle]="{ color: 'gray', fontWeight: '200', fontSize: '12px', fontFamily: 'Josefin Sans, sans-serif' }">
+                (Escriba la url de la imagen)
+            </span>
+            <input 
+                type="text" 
+                id="image" 
+                name="image" 
+                class="form-control" 
+                minlength="2" 
+                maxlength="500"
+                [(ngModel)]="entrepreneurship.image" 
+                #image="ngModel"
+            >
+        </div>
+
+        <button 
+            class="btn btn-success" 
+            type="submit" 
+            [disabled]="entrepreneurshipForm.invalid"
+        >Crear
+        </button>
+    </form>
+</div>
+
+<router-outlet></router-outlet>

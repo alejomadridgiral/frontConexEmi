@@ -16,11 +16,14 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommentsService } from './services/comments.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-//Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { CreatePublicationComponent } from './components/create-publication/create-publication.component';
+import { MainComponent } from './components/main/main.component';
+import { CityService } from './services/city.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { MatButtonModule } from '@angular/material/button';
     ReactionComponent,
     CommentsComponent,
     ReplaceUnderscorePipe,
+    CreatePublicationComponent,
+    MainComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +57,7 @@ import { MatButtonModule } from '@angular/material/button';
     ReactionService,
     CommentsService,
     provideAnimationsAsync(),
+    CityService
   ],
   bootstrap: [AppComponent],
 
