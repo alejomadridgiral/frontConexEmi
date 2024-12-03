@@ -36,11 +36,10 @@
           <span class="counter"></span> <!-- Contador de Comentarios -->
         </div>
       </mat-card-actions>
-      <app-comments [idEntrepreneurship]="entrepreneurship.idEntrepreneurship"
-        [comments]="entrepreneurship.comments"></app-comments>
+      <app-comments [idEntrepreneurship]="entrepreneurship.idEntrepreneurship" (commentAdded)="loadComments()"></app-comments>
 
       <!-- Iterar sobre los comentarios -->
-      <div *ngFor="let comment of entrepreneurship.comments">
+      <div *ngFor="let comment of entrepreneurship.comments" class="comment-card">
         <mat-card>
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>

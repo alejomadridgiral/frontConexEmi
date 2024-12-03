@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 export interface Comments {
-  idComment: number;
+  idComment?: number;
   commentDate: string;
   commentDescription: string;
-  idEntrepreneurship: number;
-  entrepreneurship_name:string;
+  idEntrepreneurship?: number;
+  entrepreneurship_name?:string;
   idUser: number;
-  user: string;
+  user?: string;
 }
 
 
@@ -22,7 +22,7 @@ export class CommentsService {
   constructor(private http: HttpClient) { }
 
   // Método para crear: Comments
-  createComments(comment: Comments): Observable<Comments> {
+  createComment(comment: Comments): Observable<Comments> {
     return this.http.post<Comments>(this.apiUrl, comment)
   }
 

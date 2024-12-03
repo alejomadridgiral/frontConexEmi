@@ -67,3 +67,9 @@
   align-items: center;
   gap: 8px;
 }
+
+.comment-card mat-card {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px; 
+}
