@@ -1,34 +1,62 @@
 <p class="comment">Conozca los últimos emprendimientos ...</p>
-
 <div class="emprendimientos-container" *ngIf="entrepreneurships.length > 0">
   <div *ngFor="let entrepreneurship of entrepreneurships" class="emprendimiento">
-
-    <!-- Usuario -->
-    <h3>{{ entrepreneurship.user}}</h3>
-
-    <!-- Nombre del emprendimiento -->
-    <h3>{{ entrepreneurship.entrepreneurshipName || 'Nombre no disponible' }}</h3>
-
-    <!-- Categorías -->
-    <p *ngIf="entrepreneurship.idCategories.length > 0"><strong>Categorías:</strong>
-      <span *ngFor="let category of entrepreneurship.nameCategories"> {{ category | replaceUnderscore}}</span>
-    </p>
-
-    <!-- Descripción del emprendimiento -->
-    <p>{{ entrepreneurship.entrepreneurshipDescription }}</p>
-
-    <!-- Dirección y Ciudad del emprendimiento -->
-    <p><strong>Dirección:</strong> {{ entrepreneurship.address }} {{ entrepreneurship.nameCity | replaceUnderscore}}</p>
-
-    <!-- Imagen del emprendimiento -->
-    <img *ngIf="entrepreneurship.image" [src]="entrepreneurship.image" alt="{{ entrepreneurship.entrepreneurshipName }}"
-      class="emprendimiento-image">
-
-
-    <!-- Reacciones y comentarios -->
-    <app-reaction [idEntrepreneurship]="entrepreneurship.idEntrepreneurship" [likes]="entrepreneurship.likes"></app-reaction>
-    <app-comments [idEntrepreneurship]="entrepreneurship.idEntrepreneurship" [comments]="entrepreneurship.comments"></app-comments>
-
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ entrepreneurship.entrepreneurshipName || 'Nombre no disponible' }}</mat-card-title>
+        <mat-card-subtitle>{{ entrepreneurship.user}}</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>Dirección: {{ entrepreneurship.address }}</mat-card-content>
+      <mat-card-content>
+        <p>
+          {{ entrepreneurship.entrepreneurshipDescription }}
+        </p>
+      </mat-card-content>
+      <mat-card-content class="category-text">
+        <p>
+          {{ entrepreneurship.nameCategories.length === 1 ? 'Categoría' : 'Categorías' }}:
+          <b>{{ entrepreneurship.nameCategories.join(', ') | replaceUnderscore}}</b>
+        </p>        
+      </mat-card-content>
+      <mat-card class="image-card">
+        <img mat-card-image *ngIf="entrepreneurship.image" [src]="entrepreneurship.image" alt="{{ entrepreneurship.entrepreneurshipName }}">
+      </mat-card>
+      <mat-card-actions class="actions">
+        <!-- Reacciones y comentarios -->
+        <app-reaction [idEntrepreneurship]="entrepreneurship.idEntrepreneurship" [likes]="entrepreneurship.likes"></app-reaction>
+        <!-- Botón de Comentarios -->
+        <div class="action-group">
+          <button mat-mini-fab>
+            <mat-icon>comment</mat-icon>
+          </button>
+          <span class="counter">8</span> <!-- Contador de Comentarios -->
+        </div>
+      </mat-card-actions>
+      <app-comments [idEntrepreneurship]="entrepreneurship.idEntrepreneurship" [comments]="entrepreneurship.comments"></app-comments>
+      
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-subtitle>Paul</mat-card-subtitle>
+        <mat-card-subtitle class="card-date">01/01/2024</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="comment-description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </mat-card-content>
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-subtitle>Jack</mat-card-subtitle>
+        <mat-card-subtitle class="card-date">02/01/2024</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="comment-description">
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
 

@@ -17,3 +17,9 @@
 .reactions button:hover {
     background-color: #0056b3;
 }
+  
+.action-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

@@ -13,13 +13,9 @@
 }
 
 .emprendimiento {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 10px;
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   transition: transform 0.2s;
 }
 
@@ -27,25 +23,47 @@
   transform: scale(1.02);
 }
 
-.emprendimiento h3 {
-  font-size: 1.2em;
-  margin: 0 0 10px;
-  color: #333;
-}
+/* nuevos estilos */
 
-.emprendimiento p {
-  font-size: 1em;
-  margin: 10px 0;
-  color: #666;
-}
-
-.emprendimiento strong {
-  color: #333;
-}
-
-.emprendimiento-image {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
+.actions {
+  margin-left: 14px;
   margin-top: 10px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.counter {
+  font-size: 16px;
+  color: #6c757d;
+}
+
+.example-header-image {
+  background-image: url('https://r2.erweima.ai/imgcompressed/img/compressed_95f6dc695351dbb5cf511ee473897718.webp');
+  background-size: cover;
+}
+
+.card-date {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.comment-description {
+  margin-top: 0px;
+}
+
+.category-text {
+  margin-bottom: 16px;
+}
+
+.image-card{
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.action-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

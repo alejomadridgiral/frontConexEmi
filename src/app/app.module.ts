@@ -15,6 +15,11 @@ import { ReactionService } from './services/reaction.service';
 import { CommentsComponent } from './components/comments/comments.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommentsService } from './services/comments.service';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { CreatePublicationComponent } from './components/create-publication/create-publication.component';
 import { MainComponent } from './components/main/main.component';
 import { CityService } from './services/city.service';
@@ -38,7 +43,11 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [
     provideClientHydration(withEventReplay()),
@@ -47,6 +56,7 @@ import { FooterComponent } from './components/footer/footer.component';
     CategoryService,
     ReactionService,
     CommentsService,
+    provideAnimationsAsync(),
     CityService
   ],
   bootstrap: [AppComponent],
