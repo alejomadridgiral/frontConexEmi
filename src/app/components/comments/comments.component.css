@@ -1,5 +1,7 @@
 .comments {
-    margin-top: 20px;
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
   
   .comments h4 {
@@ -40,4 +42,16 @@
   
   .add-comment button:hover {
     background-color: #0056b3;
+  }
+
+  .send-button {
+    height: 37px;
+    min-width: 120px;
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+  
+  .send-button mat-icon {
+    font-size: 24px;
+    margin-right: 10px;
   }
