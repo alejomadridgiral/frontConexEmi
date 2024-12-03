@@ -1,0 +1,96 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: white;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  color:#333;
+  font-family:  "Josefin Sans", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 15px 10px;
+  border-radius: 8px;
+}
+
+.nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.login-button {
+  background-color: #3399fb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-family:  "Josefin Sans", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 100px;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.divider{
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  height: 40px;
+  background: linear-gradient(98deg, #509FEB 0%, #24243E 20%, #509FEB 98%);
+  width: 100%;
+  margin-top: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000
+}
+
+.divider h1, .divider button{
+  font-family:  "Josefin Sans", sans-serif;
+  font-size: 20px;
+  color: white;
+  margin: 0px 40px;
+}
+
+.divider button{
+  background-color: #24243E;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-family:  "Josefin Sans", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}

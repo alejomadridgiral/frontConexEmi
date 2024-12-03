@@ -1,0 +1,19 @@
+.reactions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reactions button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.reactions button:hover {
+    background-color: #0056b3;
+}
