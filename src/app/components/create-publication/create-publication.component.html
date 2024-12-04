@@ -29,7 +29,7 @@
             <div *ngIf="name.invalid  && (name.dirty || name.touched)" class="text-danger">
                 <small *ngIf="name.errors?.['required']"> El nombre es obligatorio</small>
                 <small *ngIf="name.errors?.['minlength']">El nombre debe tener mas de 2 caracteres</small>
-                <small *ngIf="name.errors?.['maxlength']">El nombre debe tener menos de 20 caracteres</small>
+                <small *ngIf="name.errors?.['maxlength']">El nombre debe tener menos de 150 caracteres</small>
             </div>
         </div>
 
@@ -117,8 +117,7 @@
             <!--div de validaciones Alerts-->
             <div *ngIf="description.invalid  && (description.dirty || description.touched)" class="text-danger">
                 <small *ngIf="description.errors?.['required']">La descripción es obligatoria</small>
-                <small *ngIf="description.errors?.['maxlength']">La descripción debe tener menos de 500
-                    caracteres</small>
+                <small *ngIf="description.errors?.['maxlength']">La descripción debe tener menos de 500 caracteres</small>
             </div>
         </div>
 

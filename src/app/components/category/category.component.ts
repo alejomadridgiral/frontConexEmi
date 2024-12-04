@@ -127,9 +127,8 @@ export class CategoryComponent {
             entrepreneurship.totalReactions = reactionsForEntrepreneurship.length;
           });
         });
-    }
-    )
+    })
   }
 
-  
+
 }

@@ -24,7 +24,6 @@ export class ReactionComponent {
     entrepreneurshipName: "",
     user: "",
     totalReactions: 0,
-
   }
 
   constructor(private reactionService: ReactionService, private entrepreneurshipService: EntrepreneurshipService, private router: Router) { }

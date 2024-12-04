@@ -77,7 +77,7 @@ export class CreatePublicationComponent {
       // Agregar el valor al arreglo de categorías seleccionadas
       this.entrepreneurship.idCategories.push(value);
     } else {
-       // Buscar el índice del valor en el arreglo
+      // Buscar el índice del valor en el arreglo
       const index = this.entrepreneurship.idCategories.indexOf(value);
       if (index > -1) {
         // Eliminar el valor del arreglo si existe
@@ -89,7 +89,7 @@ export class CreatePublicationComponent {
 
   // Maneja el envío del formulario para crear un nuevo emprendimiento
   onSubmit(): void {
-    
+
     // Construir el objeto payload con los datos necesarios para el servicio
     const payload = {
       entrepreneurshipName: this.entrepreneurship.entrepreneurshipName,
@@ -119,7 +119,7 @@ export class CreatePublicationComponent {
           idCity: 0,
           idUser: 0,
           idCategories: [],
-      
+
           nameCity: "",
           user: "",
           nameCategories: [],

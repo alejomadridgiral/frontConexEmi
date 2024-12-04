@@ -24,19 +24,24 @@ import { CreatePublicationComponent } from './components/create-publication/crea
 import { MainComponent } from './components/main/main.component';
 import { CityService } from './services/city.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EntrepreneurshipComponent,
     CategoryComponent,
-    HeaderComponent,
-    ReactionComponent,
     CommentsComponent,
-    ReplaceUnderscorePipe,
     CreatePublicationComponent,
-    MainComponent,
+    EntrepreneurshipComponent,
     FooterComponent,
+    HeaderComponent,
+    LoginComponent,
+    MainComponent,
+    ReactionComponent,
+    RegisterComponent,
+    ReplaceUnderscorePipe,
   ],
   imports: [
     BrowserModule,
@@ -53,11 +58,12 @@ import { FooterComponent } from './components/footer/footer.component';
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
     provideAnimationsAsync(),
-    EntrepreneurshipService,
     CategoryService,
-    ReactionService,
-    CommentsService,
     CityService,    
+    CommentsService,
+    EntrepreneurshipService,
+    ReactionService,
+    UserService
   ],
   bootstrap: [AppComponent],
 
