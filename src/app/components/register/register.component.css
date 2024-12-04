@@ -1,0 +1,134 @@
+.login-container {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #509FEB 0%, #24243E 59%, #509FEB 100%);
+}
+
+.logo-image {
+    max-width: 40%;
+    height: auto;
+}
+
+.form-section {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.back-button i {
+    margin-right: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.back-button a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+}
+
+.login-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+}
+
+.login-form h1 {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Contenedor para dos columnas */
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Dos columnas */
+    gap: 1.5rem;
+    /* Espacio entre las columnas */
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+label {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+}
+
+input,
+select {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 15px;
+}
+
+.text-danger {
+    color: #d9534f;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 10px;
+    background-color: #509FEB;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+}
+
+.login {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login a {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+    color: #509FEB;
+    text-decoration: none;
+}

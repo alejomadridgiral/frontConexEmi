@@ -12,7 +12,8 @@
     [class.active]="activeCategory === category.nameCategory" 
     class="icon-with-text"
   >
-    <i [ngClass]="iconMap[category.nameCategory]"></i> {{ category.nameCategory | replaceUnderscore}}
+    <i [ngClass]="iconMap[category.nameCategory]"></i> 
+    {{ category.nameCategory | replaceUnderscore}}
   </a>
 </div>
 
