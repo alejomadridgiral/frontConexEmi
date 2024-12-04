@@ -33,8 +33,8 @@
 }
 
 .nav a {
-  color:#333;
-  font-family:  "Josefin Sans", sans-serif;
+  color: #333;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   text-decoration: none;
   padding: 15px 10px;
@@ -51,7 +51,7 @@
   color: white;
   border: none;
   padding: 10px 20px;
-  font-family:  "Josefin Sans", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   cursor: pointer;
   border-radius: 5px;
@@ -62,10 +62,10 @@
   background-color: #0056b3;
 }
 
-.divider{
+.divider {
   display: flex;
-  justify-content: space-between; 
-  align-items: center; 
+  justify-content: space-between;
+  align-items: center;
   height: 40px;
   background: linear-gradient(98deg, #509FEB 0%, #24243E 20%, #509FEB 98%);
   width: 100%;
@@ -77,19 +77,20 @@
   z-index: 1000
 }
 
-.divider h1, .divider button{
-  font-family:  "Josefin Sans", sans-serif;
+.divider h1,
+.divider button {
+  font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   color: white;
   margin: 0px 40px;
 }
 
-.divider button{
+.divider button {
   background-color: #24243E;
   color: white;
   border: none;
   padding: 5px 10px;
-  font-family:  "Josefin Sans", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   cursor: pointer;
   border-radius: 5px;

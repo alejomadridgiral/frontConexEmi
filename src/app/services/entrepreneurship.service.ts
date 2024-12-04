@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Comments } from './comments.service';
+import { CommentsComponent } from '../components/comments/comments.component';
+
 
 export interface Entrepreneurship {
   idEntrepreneurship: number;
@@ -16,11 +18,12 @@ export interface Entrepreneurship {
   idCategories: number[]
   nameCategories: string[];
   comments: Comments[];
-  likes: number;
+  totalComments: number;
+  totalReactions: number;
 }
 
 
-export interface CreateEntrepreneurshipRequest {
+export interface CreateEntrepreneurship {
   entrepreneurshipName: string;
   entrepreneurshipDescription: string;
   image: string;
@@ -37,14 +40,14 @@ export interface CreateEntrepreneurshipRequest {
 export class EntrepreneurshipService {
   private apiUrl = "http://localhost:8080/entrepreneurship";
 
-  private entrepreneurshipsSubject = new BehaviorSubject<Entrepreneurship[]>([]);
-  entrepreneurships$ = this.entrepreneurshipsSubject.asObservable();
+  private entrepreneurshipsSubject = new BehaviorSubject<Entrepreneurship[]>([]); // Subject para almacenar y gestionar la lista de emprendimientos
+  entrepreneurships$ = this.entrepreneurshipsSubject.asObservable(); // Observable que expone la lista de emprendimientos para que otros componentes puedan suscribirse a ella
 
   constructor(private http: HttpClient) { }
 
 
   // Método para crear: Entrepreneurship
-  createEntrepreneurship(entrepreneurship: CreateEntrepreneurshipRequest): Observable<Entrepreneurship> {
+  createEntrepreneurship(entrepreneurship: CreateEntrepreneurship): Observable<Entrepreneurship> {
     return this.http.post<Entrepreneurship>(this.apiUrl, entrepreneurship)
   }
 
@@ -73,13 +76,10 @@ export class EntrepreneurshipService {
     return this.http.get<Entrepreneurship[]>(`${this.apiUrl}/category/${nameCategory}`);
   }
 
-  addComment(id: number, comment: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/${id}/comments`, comment);
-  }
-
-
+  // Método para actualizar la lista de emprendimientos localmente en el servicio.
   updateEntrepreneurships(data: Entrepreneurship[]): void {
-    this.entrepreneurshipsSubject.next(data);
+    this.entrepreneurshipsSubject.next(data); // Actualiza la lista de emprendimientos usando el BehaviorSubject
   }
+  
 
 }

@@ -1,12 +1,9 @@
-
 <div class="action-group">
-    <button mat-mini-fab (click)="likeEntrepreneurship()">
-      <mat-icon>thumb_up</mat-icon>
-    </button>
-    <span class="counter">{{ likes }}</span> <!-- Contador de Me Gusta -->
+  <button mat-mini-fab (click)="addReaction()">
+    <mat-icon>thumb_up</mat-icon>
+  </button>
+  <!-- Contador de Me Gusta -->
+  <span class="counter">{{ reaction }}</span> 
 </div>
 
-
-
 <router-outlet></router-outlet>
-

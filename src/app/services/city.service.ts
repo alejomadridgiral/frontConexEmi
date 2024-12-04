@@ -17,6 +17,7 @@ export class CityService {
 
   constructor(private http: HttpClient) { }
 
+
   // Método para crear: City
   createCity(city: City): Observable<City> {
     return this.http.post<City>(this.apiUrl, city)
@@ -37,4 +38,5 @@ export class CityService {
     return this.http.get<City[]>(this.apiUrl)
   }
 
+  
 }

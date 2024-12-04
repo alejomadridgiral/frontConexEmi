@@ -52,12 +52,12 @@ import { FooterComponent } from './components/footer/footer.component';
   providers: [
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
+    provideAnimationsAsync(),
     EntrepreneurshipService,
     CategoryService,
     ReactionService,
     CommentsService,
-    provideAnimationsAsync(),
-    CityService
+    CityService,    
   ],
   bootstrap: [AppComponent],
 

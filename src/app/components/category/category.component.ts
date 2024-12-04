@@ -3,6 +3,7 @@ import { Category, CategoryService } from '../../services/category.service';
 import { Router } from '@angular/router';
 import { Entrepreneurship, EntrepreneurshipService } from '../../services/entrepreneurship.service';
 import { CommentsService } from '../../services/comments.service';
+import { ReactionService } from '../../services/reaction.service';
 
 
 interface IconMap {
@@ -39,7 +40,7 @@ export class CategoryComponent {
     'Otros': "fa-solid fa-ellipsis"
   };
 
-  constructor(private categoryservice: CategoryService, private entrepreneurshipService: EntrepreneurshipService, private commentsService: CommentsService, private router: Router) { }
+  constructor(private categoryservice: CategoryService, private entrepreneurshipService: EntrepreneurshipService, private commentsService: CommentsService, private reactionService: ReactionService, private router: Router) { }
 
 
   ngOnInit(): void {
@@ -48,14 +49,21 @@ export class CategoryComponent {
   }
 
 
+  // Maneja el evento de clic en una categoría.
   onCategoryClick(nameCategory: string): void {
+
+    // Establece la categoría activa para destacar o filtrar los resultados en la interfaz.
     this.activeCategory = nameCategory;
-  
+
+    // Función reutilizable para manejar la respuesta exitosa de la API.
     const handleResponse = (data: Entrepreneurship[]) => {
+      // Actualiza la lista global de emprendimientos en el servicio compartido.
       this.entrepreneurshipService.updateEntrepreneurships(data);
-      this.loadCommentsForEntrepreneurships(data); // Cargar los comentarios
+      // Carga los comentarios y reacciones asociados a los emprendimientos recibidos.
+      this.loadCommentsAndReactionsForEntrepreneurships(data);
     };
-  
+
+    // Si se selecciona "TODAS", cargar todos los emprendimientos disponibles.
     if (nameCategory === 'TODAS') {
       this.entrepreneurshipService.getAllEntrepreneurships().subscribe(
         handleResponse,
@@ -65,6 +73,7 @@ export class CategoryComponent {
         }
       );
     } else {
+      // Cargar emprendimientos filtrados por la categoría seleccionada.
       this.entrepreneurshipService.getEntrepreneurshipsByCategory(nameCategory).subscribe(
         handleResponse,
         (error) => {
@@ -74,19 +83,27 @@ export class CategoryComponent {
       );
     }
   }
-  
-  // Método auxiliar para cargar los comentarios de los emprendimientos
-  private loadCommentsForEntrepreneurships(entrepreneurships: Entrepreneurship[]): void {
+
+
+  //  Método auxiliar para cargar los comentarios y reacciones de una lista de emprendimientos.
+  private loadCommentsAndReactionsForEntrepreneurships(entrepreneurships: Entrepreneurship[]): void {
+    // Iterar sobre cada emprendimiento en la lista
     entrepreneurships.forEach((entrepreneurship) => {
+
+      // Obtener comentarios asociados al emprendimiento actual
       this.commentsService.getCommentsByEntrepreneurship(entrepreneurship.idEntrepreneurship).subscribe(
         (comments) => {
-          entrepreneurship.comments = comments.map(comment => {
+          // Asignar el total de comentarios al emprendimiento
+          entrepreneurship.totalComments = comments.length;
+
+          // Procesar y formatear los comentarios recibidos
+          entrepreneurship.comments = comments.map((comment) => {
             if (comment.commentDate) {
-              // Ajustar la cadena de fecha al formato ISO 8601
+              // Convertir la fecha del comentario a un formato válido
               const isoDateString = comment.commentDate.replace(' ', 'T');
               const date = new Date(isoDateString);
               if (isNaN(date.getTime())) {
-                console.error("Invalid Date format:", comment.commentDate);
+                console.error('Invalid Date format:', comment.commentDate);
               } else {
                 const options: Intl.DateTimeFormatOptions = {
                   year: 'numeric', month: 'long', day: 'numeric',
@@ -95,17 +112,24 @@ export class CategoryComponent {
                 comment.commentDate = date.toLocaleDateString('es-ES', options);
               }
             } else {
-              console.error("commentDate is undefined for comment:", comment);
+              console.error('commentDate is undefined for comment:', comment);
             }
             return comment;
           });
-        },
-        (error) => {
-          console.error(`Error al cargar comentarios para el emprendimiento con ID ${entrepreneurship.idEntrepreneurship}:`, error);
-        }
-      );
-    });
+
+          // Obtener comentarios asociados al emprendimiento actual
+          this.reactionService.getAllReactions().subscribe((reactions) => {
+            // Filtrar reacciones que corresponden al emprendimiento actual
+            const reactionsForEntrepreneurship = reactions.filter(
+              (reaction) => reaction.idEntrepreneurship === entrepreneurship.idEntrepreneurship
+            );
+            // Asignar el total de reacciones al emprendimiento
+            entrepreneurship.totalReactions = reactionsForEntrepreneurship.length;
+          });
+        });
+    }
+    )
   }
 
-
+  
 }

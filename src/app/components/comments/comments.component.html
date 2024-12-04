@@ -2,12 +2,17 @@
   <h4>Comentarios</h4>
 
   <div class="add-comment">
-    <input type="text" [(ngModel)]="newComment" placeholder="Añadir un comentario...">
+    <input 
+      type="text" 
+      placeholder="Añadir un comentario..." 
+      [(ngModel)]="newComment.commentDescription"
+    >
     <button mat-fab extended class="send-button" (click)="addComment()">
       <mat-icon>send</mat-icon>
       Enviar
     </button>
   </div>
+
 </div>
 
 <router-outlet></router-outlet>

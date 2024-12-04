@@ -3,27 +3,62 @@
   font-size: 18px;
 }
 
-.emprendimientos-container {
+.entrepreneurship-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   padding: 20px;
-  background-color: #f0f2f5;
+  background-color: #faf9fd;
 }
 
-.emprendimiento {
+.entrepreneurship {
   padding: 10px;
   width: 100%;
   max-width: 800px;
   transition: transform 0.2s;
+  margin: auto;
 }
 
-.emprendimiento:hover {
+.entrepreneurship:hover {
   transform: scale(1.02);
 }
 
-/* nuevos estilos */
+.example-header-image {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/3541/3541871.png');
+  background-size: cover;
+}
+
+mat-card-header{
+  background-color: #faf9fd;
+}
+
+mat-card-title{
+  font-family:  "Josefin Sans", sans-serif;
+  font-size: 22px;
+}
+
+mat-card-subtitle{
+  font-family:  "Josefin Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 350;
+}
+
+mat-card-content{
+  font-family:  "Josefin Sans", sans-serif;
+  font-size: 16px;
+  background-color: #faf9fd;
+}
+
+.text-gray{
+  color: #6c757d;
+}
+
+.image-card{
+  margin-top: 20px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
 
 .actions {
   margin-left: 14px;
@@ -33,37 +68,34 @@
   align-items: center;
 }
 
-.counter {
-  font-size: 16px;
-  color: #6c757d;
+.action-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.example-header-image {
-  background-image: url('https://cdn-icons-png.flaticon.com/512/3541/3541871.png');
-  background-size: cover;
+.counter {
+  font-family:  "Josefin Sans", sans-serif;
+  font-size: 18px;
+  color: #6c757d;
 }
 
 .card-date {
   margin-top: 4px;
-  font-size: 14px;
-  color: #6c757d;
+  font-family:  "Josefin Sans", sans-serif;
+  font-size: 15px;
+  color: #101111;
 }
 
 .comment-description {
   margin-top: 0px;
 }
 
-.category-text {
-  margin-bottom: 16px;
-}
 
-.image-card{
-  margin-left: 16px;
-  margin-right: 16px;
-}
 
-.action-group {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+
+
+
+
+
+
