@@ -27,6 +27,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UserService } from './services/user.service';
+import { HomePageComponent } from './components/home_page/home_page.component';
 
 @NgModule({
   declarations: [
@@ -37,11 +38,13 @@ import { UserService } from './services/user.service';
     EntrepreneurshipComponent,
     FooterComponent,
     HeaderComponent,
+    HomePageComponent,
     LoginComponent,
     MainComponent,
     ReactionComponent,
     RegisterComponent,
     ReplaceUnderscorePipe,
+    
   ],
   imports: [
     BrowserModule,

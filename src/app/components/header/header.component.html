@@ -1,25 +1,18 @@
-<header class="header">
-  <div class="logo-title">
-    <img src="Logo.png" alt="Logo" class="logo">
-    <img src="Nombre.png" alt="Logo" class="logo">
-  </div>
+<header class="header" id="inicio">
+    <div class="logo-title" routerLink="" (click)="scrollTo('inicio')">
+        <img src="Logo.png" alt="Logo" class="logo">
+        <img src="Nombre.png" alt="Nombre" class="logo">
+    </div>
 
-  <nav class="nav">
-    <ul>
-      <li><a href="">Inicio</a></li>
-      <li><a href="">Nosotros</a></li>
-      <li><a href="">Emprendimientos</a></li>
-      <li><a href="">Contacto</a></li>
-    </ul>
-  </nav>
-
-  <button class="login-button" routerLink="/login">Ingresar</button>
+    <nav class="nav">
+        <ul>
+            <li><a routerLink="" (click)="scrollTo('inicio')">Inicio</a></li>
+            <li><a routerLink="" (click)="scrollTo('nosotros')">Nosotros</a></li>
+            <li><a routerLink="/entrepreneurship">Emprendimientos</a></li>
+            <li><a routerLink="" (click)="scrollTo('contacto')">Contacto</a></li>
+        </ul>
+    </nav>
+    <button class="login-button" routerLink="/login">Ingresar</button>
 </header>
-
-<div class="divider">
-  <h1>Categorias</h1>
-  <h1>Emprendedores en Acción</h1>
-  <button  routerLink="/createPublication">Crear publicación</button>
-</div>
 
 <router-outlet></router-outlet>

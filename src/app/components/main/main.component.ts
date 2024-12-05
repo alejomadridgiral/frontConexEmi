@@ -9,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
 
+  scrollTo(targetId: string): void {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80, 
+        behavior: 'smooth',
+      });
+    }
+  }
+  
 }
