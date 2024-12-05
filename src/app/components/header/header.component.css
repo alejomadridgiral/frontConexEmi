@@ -22,6 +22,7 @@
 .logo {
   height: 50px;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .nav ul {
@@ -60,38 +61,4 @@
 
 .login-button:hover {
   background-color: #0056b3;
-}
-
-.divider {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 40px;
-  background: linear-gradient(98deg, #509FEB 0%, #24243E 20%, #509FEB 98%);
-  width: 100%;
-  margin-top: 70px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000
-}
-
-.divider h1,
-.divider button {
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 20px;
-  color: white;
-  margin: 0px 40px;
-}
-
-.divider button {
-  background-color: #24243E;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 5px;
 }

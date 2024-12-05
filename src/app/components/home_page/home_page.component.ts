@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'app-homepage',
   standalone: false,
   
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  templateUrl: './home_page.component.html',
+  styleUrl: './home_page.component.css'
 })
-export class FooterComponent {
-  
+export class HomePageComponent {
+
   scrollTo(targetId: string): void {
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
@@ -18,5 +18,5 @@ export class FooterComponent {
       });
     }
   }
-  
+
 }
