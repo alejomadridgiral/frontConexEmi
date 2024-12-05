@@ -108,18 +108,19 @@
     display: flex;
     align-items: center;
     background: linear-gradient(98deg, #509FEB 0%, #24243E 20%, #509FEB 98%);
+    justify-content: center;
 }
 
 .union {
     height: 200px;
     width: 200px;
-    margin-left: 300px;
+    margin-left: 150px;
 }
 
 .slogan p {
     font-family: "Josefin Sans", sans-serif;
-    font-size: 35px;
-    margin: 0px 200px;
+    font-size: 30px;
+    margin: 0px 150px;
     text-align: center;
 }
 
@@ -144,7 +145,7 @@
     padding: 20px;
     border-radius: 10px;
     margin: 20px;
-    width: 250px;
+    width: 200px;
     text-align: center;
 }
 
