@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { baseurl } from '../../config/baseurl';
 
 
 export interface City {
@@ -13,7 +14,7 @@ export interface City {
   providedIn: 'root'
 })
 export class CityService {
-  private apiUrl = "http://localhost:8080/city";
+  private apiUrl = `${baseurl}/city`;
 
   constructor(private http: HttpClient) { }
 

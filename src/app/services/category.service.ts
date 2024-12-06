@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { baseurl } from '../../config/baseurl';
 
 
 export interface Category {
@@ -13,7 +14,7 @@ export interface Category {
   providedIn: 'root'
 })
 export class CategoryService {
-  private apiUrl = "http://localhost:8080/category";
+  private apiUrl = `${baseurl}/category`;
 
   constructor(private http: HttpClient) { }
 

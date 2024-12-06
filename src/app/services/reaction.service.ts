@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { baseurl } from '../../config/baseurl';
 
 
 export interface Reaction {
@@ -25,7 +26,7 @@ export interface createReaction {
   providedIn: 'root'
 })
 export class ReactionService {
-  private apiUrl = "http://localhost:8080/reaction";
+  private apiUrl = `${baseurl}/reaction`;
 
   private reactionAddedSource = new Subject<void>(); // Subject que se utiliza para notificar eventos cuando se agrega una reacción.
   reactionAdded$ = this.reactionAddedSource.asObservable(); // Observable que otros componentes pueden suscribirse para recibir notificaciones de nuevas reacciones.
