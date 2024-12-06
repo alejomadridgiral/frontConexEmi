@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { baseurl } from '../../config/baseurl';
 
 
 export interface Comments {
@@ -26,7 +27,7 @@ export interface CreateComments {
   providedIn: 'root'
 })
 export class CommentsService {
-  private apiUrl = "http://localhost:8080/comments";
+  private apiUrl = `${baseurl}/comments`;
 
   private commentAddedSource = new Subject<void>(); // Subject que se utiliza para notificar cuando se agrega un nuevo comentario
   commentAdded$ = this.commentAddedSource.asObservable();  // Observable que expone el evento de notificación de nuevo comentario
