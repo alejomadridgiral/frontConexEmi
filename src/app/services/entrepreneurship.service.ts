@@ -38,7 +38,7 @@ export interface CreateEntrepreneurship {
   providedIn: 'root'
 })
 export class EntrepreneurshipService {
-  private apiUrl = "http://localhost:8080/entrepreneurship";
+  private apiUrl = "https://4be7-2800-e2-6980-80-6524-44a3-a96d-736e.ngrok-free.app/entrepreneurship";
 
   private entrepreneurshipsSubject = new BehaviorSubject<Entrepreneurship[]>([]); // Subject para almacenar y gestionar la lista de emprendimientos
   entrepreneurships$ = this.entrepreneurshipsSubject.asObservable(); // Observable que expone la lista de emprendimientos para que otros componentes puedan suscribirse a ella
