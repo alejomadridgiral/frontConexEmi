@@ -1,59 +1,120 @@
-# FrontConexEMI
+# frontConexEMI
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+**frontConexEMI** es una plataforma que conecta a emprendedores, inversores, mentores y organizaciones dentro de un ecosistema dinámico y vibrante que fomenta el crecimiento y éxito de nuevas ideas y negocios en Colombia.
 
-## Development server
+## Tabla de Contenidos
 
-To start a local development server, run:
+1. [Instalación](#instalación)
+2. [Uso](#uso)
+3. [Scripts Disponibles](#scripts-disponibles)
+4. [Estructura del Proyecto](#estructura-del-proyecto)
+5. [Contribuir](#contribuir)
+6. [Licencia](#licencia)
 
+---
+
+## Instalación
+
+Sigue estos pasos para instalar y configurar el proyecto:
+
+1. Clona el repositorio:
+    ```bash
+    git clone https://github.com/alejomadridgiral/frontConexEMI.git
+    cd frontConexEMI
+    ```
+
+2. Instala las dependencias:
+    ```bash
+    npm install
+    ```
+
+---
+
+## Uso
+
+Para iniciar el servidor de desarrollo, ejecuta:
 ```bash
-ng serve
+npm start
+```
+Esto iniciará la aplicación en [http://localhost:4200/](http://localhost:4200/).
+
+---
+
+## Scripts Disponibles
+
+En el proyecto puedes ejecutar los siguientes scripts:
+
+- **`npm start`**: Inicia el servidor de desarrollo.
+- **`npm run build`**: Compila la aplicación para producción en la carpeta `dist`.
+- **`npm run watch`**: Compila la aplicación en modo desarrollo y observa los cambios.
+- **`npm test`**: Ejecuta las pruebas unitarias.
+
+---
+
+## Estructura del Proyecto
+
+La estructura principal del proyecto es la siguiente:
+
+```
+frontConexEMI/
+├── .editorconfig
+├── .gitignore
+├── .vscode/
+│   ├── extensions.json
+│   ├── launch.json
+│   └── tasks.json
+├── angular.json
+├── package.json
+├── public/
+├── README.md
+├── src/
+│   ├── app/
+│   │   ├── app-routing.module.ts
+│   │   ├── app.component.css
+│   │   ├── app.component.html
+│   │   ├── app.component.spec.ts
+│   │   ├── app.component.ts
+│   │   ├── app.module.server.ts
+│   │   ├── app.module.ts
+│   │   ├── app.routes.server.ts
+│   │   └── components/
+│   │       └── ...
+│   ├── config/
+│   │   └── baseurl.ts
+│   ├── index.html
+│   ├── main.server.ts
+│   ├── main.ts
+│   ├── server.ts
+│   ├── styles.css
+│   └── replace-underscore.pipe.spec.ts
+├── tsconfig.app.json
+├── tsconfig.json
+└── tsconfig.spec.json
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Contribuir
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Las contribuciones son bienvenidas. Sigue estos pasos para contribuir:
 
-```bash
-ng generate component component-name
-```
+1. Haz un fork del proyecto.
+2. Crea una nueva rama:
+    ```bash
+    git checkout -b feature/nueva-funcionalidad
+    ```
+3. Realiza los cambios necesarios y haz commit:
+    ```bash
+    git commit -m 'Añadir nueva funcionalidad'
+    ```
+4. Sube los cambios a tu fork:
+    ```bash
+    git push origin feature/nueva-funcionalidad
+    ```
+5. Abre un **Pull Request**.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Licencia
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este proyecto está licenciado bajo la **Licencia MIT**. Consulta el archivo `LICENSE` para más detalles.
