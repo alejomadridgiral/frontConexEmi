@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { baseurl } from '../../config/baseurl';
 
 
 export interface City {
@@ -14,29 +13,33 @@ export interface City {
   providedIn: 'root'
 })
 export class CityService {
-  private apiUrl = `${baseurl}/city`;
-
+  private apiUrl =  "http://localhost:8080/city";
+  
   constructor(private http: HttpClient) { }
 
 
   // Método para crear: City
   createCity(city: City): Observable<City> {
-    return this.http.post<City>(this.apiUrl, city)
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<City>(this.apiUrl, city, { headers })
   }
 
   // Método para obtener por id: City
   getCityById(idCity: number): Observable<City> {
-    return this.http.get<City>(`${this.apiUrl}/${idCity}`);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.get<City>(`${this.apiUrl}/${idCity}`, { headers });
   }
 
   // Método para obtener por name: City
   getCityByName(nameCity: string): Observable<City> {
-    return this.http.get<City>(`${this.apiUrl}/${nameCity}`);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.get<City>(`${this.apiUrl}/${nameCity}`, { headers });
   }
 
   // Método para obtener todos: City
   getAllCities(): Observable<City[]> {
-    return this.http.get<City[]>(this.apiUrl)
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.get<City[]>(this.apiUrl, { headers })
   }
 
   

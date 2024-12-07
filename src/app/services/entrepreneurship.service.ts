@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Comments } from './comments.service';
-import { CommentsComponent } from '../components/comments/comments.component';
-import { baseurl } from '../../config/baseurl';
 
 
 export interface Entrepreneurship {
@@ -39,7 +37,8 @@ export interface CreateEntrepreneurship {
   providedIn: 'root'
 })
 export class EntrepreneurshipService {
-  private apiUrl = `${baseurl}/entrepreneurship`;
+
+  private apiUrl =  "http://localhost:8080/entrepreneurship";
 
   private entrepreneurshipsSubject = new BehaviorSubject<Entrepreneurship[]>([]); // Subject para almacenar y gestionar la lista de emprendimientos
   entrepreneurships$ = this.entrepreneurshipsSubject.asObservable(); // Observable que expone la lista de emprendimientos para que otros componentes puedan suscribirse a ella
@@ -49,32 +48,38 @@ export class EntrepreneurshipService {
 
   // Método para crear: Entrepreneurship
   createEntrepreneurship(entrepreneurship: CreateEntrepreneurship): Observable<Entrepreneurship> {
-    return this.http.post<Entrepreneurship>(this.apiUrl, entrepreneurship)
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<Entrepreneurship>(this.apiUrl, entrepreneurship, { headers })
   }
 
   // Método para obtener por id: Entrepreneurship
   getEntrepreneurshipById(idEntrepreneurship: number): Observable<Entrepreneurship> {
-    return this.http.get<Entrepreneurship>(`${this.apiUrl}/${idEntrepreneurship}`);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.get<Entrepreneurship>(`${this.apiUrl}/${idEntrepreneurship}`, { headers });
   }
 
   // Método para obtener todos: Entrepreneurship
   getAllEntrepreneurships(): Observable<Entrepreneurship[]> {
-    return this.http.get<Entrepreneurship[]>(this.apiUrl)
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.get<Entrepreneurship[]>(this.apiUrl, { headers })
   }
 
   // Método para actualizar por id: Entrepreneurship
   updateEntrepreneurship(entrepreneurship: Entrepreneurship): Observable<Entrepreneurship> {
-    return this.http.put<Entrepreneurship>(`${this.apiUrl}/${entrepreneurship.idEntrepreneurship}`, entrepreneurship);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.put<Entrepreneurship>(`${this.apiUrl}/${entrepreneurship.idEntrepreneurship}`, entrepreneurship, { headers });
   }
 
   // Método para eliminar por id: Entrepreneurship
   deleteEntrepreneurshipById(idEntrepreneurship: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${idEntrepreneurship}`);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.delete<void>(`${this.apiUrl}/${idEntrepreneurship}`, { headers });
   }
 
   // Método para obtener por categoria: Entrepreneurship
   getEntrepreneurshipsByCategory(nameCategory: string): Observable<Entrepreneurship[]> {
-    return this.http.get<Entrepreneurship[]>(`${this.apiUrl}/category/${nameCategory}`);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.get<Entrepreneurship[]>(`${this.apiUrl}/category/${nameCategory}`, { headers });
   }
 
   // Método para actualizar la lista de emprendimientos localmente en el servicio.

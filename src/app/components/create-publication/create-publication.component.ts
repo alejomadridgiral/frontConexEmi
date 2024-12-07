@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CreateEntrepreneurship, Entrepreneurship, EntrepreneurshipService } from '../../services/entrepreneurship.service';
+import { Entrepreneurship, EntrepreneurshipService } from '../../services/entrepreneurship.service';
 import { Router } from '@angular/router';
 import { Category, CategoryService } from '../../services/category.service';
 import { City, CityService } from '../../services/city.service';
