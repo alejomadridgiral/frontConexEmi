@@ -6,7 +6,7 @@
   <img src="https://github.com/user-attachments/assets/1ce09bac-3b8a-4f47-91bc-28f101caba9b" alt="Logo Conexemi" />
 </div>
 
-##Tabla de Contenidos
+## Tabla de Contenidos
 
 1. [Vista previa](#vista-previa)
 2. [Instalación](#instalación)
