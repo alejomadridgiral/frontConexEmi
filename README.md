@@ -2,16 +2,26 @@
 
 **frontConexEMI** es una plataforma que conecta a emprendedores, inversores, mentores y organizaciones dentro de un ecosistema dinámico y vibrante que fomenta el crecimiento y éxito de nuevas ideas y negocios en Colombia.
 
-## Tabla de Contenidos
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/1ce09bac-3b8a-4f47-91bc-28f101caba9b" alt="Logo Conexemi" />
+</div>
 
-1. [Instalación](#instalación)
-2. [Uso](#uso)
-3. [Scripts Disponibles](#scripts-disponibles)
-4. [Estructura del Proyecto](#estructura-del-proyecto)
-5. [Contribuir](#contribuir)
-6. [Licencia](#licencia)
+##Tabla de Contenidos
+
+1. [Vista previa](#vista-previa)
+2. [Instalación](#instalación)
+3. [Uso](#uso)
+4. [Scripts Disponibles](#scripts-disponibles)
+5. [Estructura del Proyecto](#estructura-del-proyecto)
+6. [Contribuir](#contribuir)
+7. [Licencia](#licencia)
 
 ---
+## Vista previa
+
+![Homepage](https://github.com/user-attachments/assets/64fef91a-c86a-4c35-8827-ca4c6d088d85)
+
+![Emprendimientos](https://github.com/user-attachments/assets/240414b0-45aa-46c2-ba52-f4ec8965df82)
 
 ## Instalación
 
