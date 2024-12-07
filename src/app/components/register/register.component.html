@@ -1,4 +1,4 @@
-<div class="login-container">
+<div class="register-container">
     <!-- Imagen del logo -->
     <div class="logo-section">
         <img src="Logo.png" alt="Logo" class="logo-image">
@@ -12,7 +12,7 @@
             <a routerLink="">Inicio</a>
         </div>
 
-        <form class="login-form" id="user-form" (ngSubmit)="onSubmit()" #userForm="ngForm" novalidate>
+        <form class="register-form" id="user-form" (ngSubmit)="onSubmit()" #userForm="ngForm" novalidate>
             <h1>Registro</h1>
 
             <!-- Contenedor para nombres y apellidos -->
@@ -155,7 +155,7 @@
 
             <button 
                 type="submit" 
-                class="btn-login"
+                class="btn-register"
                 [disabled]="userForm.invalid"
             >Registrarse
             </button>

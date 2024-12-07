@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { EntrepreneurshipService } from '../../services/entrepreneurship.service';
-import { Comments, CommentsService, CreateComments } from '../../services/comments.service';
+import { Comments, CommentsService } from '../../services/comments.service';
 import { Router } from '@angular/router';
 
 @Component({
